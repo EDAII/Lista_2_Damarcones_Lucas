@@ -1,10 +1,11 @@
 let nodemenu = require('node-menu')
-const { rmnull,addend, deletebycpf, insertionsort, menu, exibirclientes, binsearch } = require('./function')
+const { rmnull, addend, deletebycpf,  menu, exibirclientes, binsearch } = require('./function')
+const {selectionsort, insertionsort,bubblesort} = require('./algorithms')
 const DB = require("./pessoas")
-let dados = insertionsort(DB)
-
+let dados = bubblesort(DB)
 let opcoes = menu()
 
+exibirclientes(dados)
 nodemenu.addDelimiter('-', 60, opcoes[0])
 nodemenu.addItem(
     opcoes[1],
@@ -25,11 +26,10 @@ nodemenu.addItem(
         opcoes[3],
         (cpf) => {
             let res = deletebycpf(dados, cpf)
-            if (res !== -1)
-                {
-                    console.log("Usuário deletado")
-                    dados = rmnull(dados)
-                }
+            if (res !== -1) {
+                console.log("Usuário deletado")
+                dados = rmnull(dados)
+            }
             else
                 console.log("Operação não realizada")
         }, null,
@@ -58,6 +58,6 @@ nodemenu.addItem(
         }, null,
         [{ 'name': '_cpf', 'type': 'string' }, { 'name': '_nome', 'type': 'string' },
         { 'name': '_rg', 'type': 'string' }, { 'name': '_idade', 'type': 'numeric' }])
-    .start()
+    // .start()
 
 

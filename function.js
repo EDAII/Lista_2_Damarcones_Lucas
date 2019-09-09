@@ -1,37 +1,4 @@
-const insertionsort = (data) => {
-    let array = data
-    let i, j, aux, n = array.length;
-    for (i = 1; i < n; i++) {
-        j = i;
-        while ((j != 0) && (array[j].cpf < array[j - 1].cpf)) {
-            aux = array[j];
-            array[j] = array[j - 1];
-            array[j - 1] = aux;
-            j--;
-        }
-
-    }
-    return array;
-}
-
-const selectionsort = (data) => {
-    let array = data
-    let i, min, aux;
-    for (i = 0; i < array.length - 1; i++) {
-        min = i;
-        for (let j = i + 1; j < array.length; j++) {
-            if (array[j].cpf < array[min].cpf)
-                min = j
-        }
-        if (array[i].cpf != array[min].cpf) {
-            aux = arry[i];
-            array[i] = array[min];
-            array[min] = aux;
-        }
-    }
-    return array;
-}
-}
+const { insertionsort, selectionsort } = require('./algorithms')
 const addend = (data, info) => {
     data.push(info)
     return insertionsort(data)
@@ -107,8 +74,11 @@ const deletebycpf = (dados, cpf) => {
 
 
 module.exports = {
-    indexsearch, insertionsort,
-    menu, exibirclientes, binsearch,
-    deletebycpf, addend, rmnull,
-    selectionsort
+    indexsearch,
+    menu,
+    exibirclientes,
+    binsearch,
+    deletebycpf,
+    addend,
+    rmnull
 }
