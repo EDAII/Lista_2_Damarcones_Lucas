@@ -1,3 +1,6 @@
+const { performance } = require('perf_hooks');
+
+
 const insertionsort = (data) => {
     console.log("Insertion Sort")
     let array = data
@@ -34,29 +37,38 @@ const selectionsort = (data) => {
     return array;
 }
 
-const bubblesort = (data) =>{
+const bubblesort = (data) => {
     console.log("Bubble Sort")
     let array = data
     let n = array.length;
     let swap = false
     do {
         swap = false
-        for (let i = 0; i < n -2 ; i++) {
-            if(array[i].cpf > array[i + 1 ].cpf){
+        for (let i = 0; i < n - 2; i++) {
+            if (array[i].cpf > array[i + 1].cpf) {
                 swap = true
                 let aux = array[i]
-                array[i] = array[i+1]
-                array[i+1] = aux
-            }            
+                array[i] = array[i + 1]
+                array[i + 1] = aux
+            }
         }
-        
+
     } while (swap === true);
 
-    return array;   
+    return array;
 }
 
+const timeoffunction = (fun, data, name) => {
+    let vet
+    let t0 = performance.now();
+    vet = fun(data)
+    let t1 = performance.now();
+    console.log(`Time used by ${name} = ${t1 - t0} milliseconds`);
+    return vet
+}
 module.exports = {
     insertionsort,
     selectionsort,
-    bubblesort
+    bubblesort,
+    timeoffunction
 }
