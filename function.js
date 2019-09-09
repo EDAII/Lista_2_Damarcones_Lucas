@@ -13,6 +13,25 @@ const insertionsort = (data) => {
     }
     return array;
 }
+
+const selectionsort = (data) => {
+    let array = data
+    let i, min, aux;
+    for (i = 0; i < array.length - 1; i++) {
+        min = i;
+        for (let j = i + 1; j < array.length; j++) {
+            if (array[j].cpf < array[min].cpf)
+                min = j
+        }
+        if (array[i].cpf != array[min].cpf) {
+            aux = arry[i];
+            array[i] = array[min];
+            array[min] = aux;
+        }
+    }
+    return array;
+}
+}
 const addend = (data, info) => {
     data.push(info)
     return insertionsort(data)
@@ -66,13 +85,13 @@ const binsearch = function (arr, x) {
 
 }
 
-const rmnull = (data)=>{
+const rmnull = (data) => {
     let newdata = []
-        for(let i = 0; i< data.length ;i++){
-            if(data[i].cpf !== "")
-                newdata.push(data[i])
-        }
-        return newdata
+    for (let i = 0; i < data.length; i++) {
+        if (data[i].cpf !== "")
+            newdata.push(data[i])
+    }
+    return newdata
 }
 
 const deletebycpf = (dados, cpf) => {
@@ -90,5 +109,6 @@ const deletebycpf = (dados, cpf) => {
 module.exports = {
     indexsearch, insertionsort,
     menu, exibirclientes, binsearch,
-    deletebycpf, addend,rmnull
+    deletebycpf, addend, rmnull,
+    selectionsort
 }
