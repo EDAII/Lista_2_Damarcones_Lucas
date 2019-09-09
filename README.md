@@ -14,7 +14,7 @@ node server.js
 
 #### Algoritmos usados
 
-Insertion Sort
-Bubble Sort 
-Selection Sort
+##### Insertion Sort
+##### Bubble Sort 
+##### Selection Sort
 
