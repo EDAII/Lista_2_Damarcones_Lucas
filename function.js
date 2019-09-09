@@ -27,6 +27,7 @@ const menu = () => {
     obj.push("Buscar segurado")
     obj.push("Remover segurado")
     obj.push("Cadastrar novo segurado")
+    obj.push("Tempo usado para ordenar")
 
     return obj
 }
