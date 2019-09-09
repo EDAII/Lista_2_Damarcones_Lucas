@@ -58,6 +58,6 @@ nodemenu.addItem(
         }, null,
         [{ 'name': '_cpf', 'type': 'string' }, { 'name': '_nome', 'type': 'string' },
         { 'name': '_rg', 'type': 'string' }, { 'name': '_idade', 'type': 'numeric' }])
-    // .start()
+    .start()
 
 
