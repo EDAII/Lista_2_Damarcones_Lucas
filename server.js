@@ -1,12 +1,12 @@
 let nodemenu = require('node-menu')
-const { rmnull, addend, deletebycpf,  menu, exibirclientes, binsearch } = require('./function')
-const {selectionsort, insertionsort,bubblesort} = require('./algorithms')
+const { rmnull, addend, deletebycpf, menu, exibirclientes, binsearch } = require('./function')
+const { selectionsort, insertionsort, bubblesort, timeoffunction } = require('./algorithms')
 const DB = require("./pessoas")
-let dados = bubblesort(DB)
+// let dados
 let opcoes = menu()
+dados = insertionsort(DB)
 
-exibirclientes(dados)
-nodemenu.addDelimiter('-', 60, opcoes[0])
+// nodemenu.addDelimiter('-', 60, opcoes[0])
 nodemenu.addItem(
     opcoes[1],
     () => {
@@ -58,6 +58,13 @@ nodemenu.addItem(
         }, null,
         [{ 'name': '_cpf', 'type': 'string' }, { 'name': '_nome', 'type': 'string' },
         { 'name': '_rg', 'type': 'string' }, { 'name': '_idade', 'type': 'numeric' }])
+    .addItem(opcoes[5], () => {
+        let time
+        time = timeoffunction(bubblesort, DB, "Bubble Sort")
+        time = timeoffunction(selectionsort, DB, "Selection Sort")
+        time = timeoffunction(insertionsort, DB, "Insertion Sort")
+    })
+    .disableDefaultPrompt()
     .start()
 
 
